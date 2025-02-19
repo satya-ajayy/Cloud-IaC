@@ -1,0 +1,17 @@
+module "pdfs_bucket" {
+  source                      = "./tf-modules/gcs-bucket"
+  bucket_name                 = "pdfs"
+  bucket_location             = var.region
+  enable_versioning           = true
+  uniform_bucket_level_access = true
+  lifecycle_rules = [{
+    action = {
+      type = "Delete"
+    }
+    condition = {
+      age            = 100
+      with_state     = "ANY"
+      matches_suffix = [".pdf"]
+    }
+  }]
+}
