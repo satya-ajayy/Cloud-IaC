@@ -26,7 +26,7 @@ variable "default_storage_class" {
 variable "block_public_access" {
   description = "If set to true, the bucket will block all public access"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "uniform_bucket_level_access" {
@@ -39,28 +39,6 @@ variable "enable_versioning" {
   description = "If set to true, the bucket will have versioning enabled"
   type        = bool
   default     = false
-}
-
-variable "cors_enabled" {
-  description = "If set to true, the bucket will have CORS enabled"
-  type        = bool
-  default     = false
-}
-
-variable "cors" {
-  description = "The CORS configuration for the bucket"
-  type = object({
-    origins          = list(string)
-    methods          = list(string)
-    response_headers = list(string)
-    max_age_seconds  = number
-  })
-  default = {
-    origins          = []
-    methods          = []
-    response_headers = []
-    max_age_seconds  = 0
-  }
 }
 
 variable "lifecycle_rules" {

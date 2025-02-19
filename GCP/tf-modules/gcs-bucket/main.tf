@@ -2,12 +2,6 @@
 
 locals {
   public_access = var.block_public_access ? "enforced" : "inherited"
-  cors = var.cors_enabled ? [{
-    origin          = var.cors.origins
-    method          = var.cors.methods
-    response_header = var.cors.response_headers
-    max_age_seconds = var.cors.max_age_seconds
-  }] : []
 }
 
 resource "google_storage_bucket" "bucket" {
@@ -15,21 +9,11 @@ resource "google_storage_bucket" "bucket" {
   location                    = var.bucket_location
   storage_class               = var.default_storage_class
   force_destroy               = var.force_destroy
+  public_access_prevention    = local.public_access
   uniform_bucket_level_access = var.uniform_bucket_level_access
 
   versioning {
     enabled = var.enable_versioning
-  }
-
-  dynamic "cors" {
-    for_each = local.cors
-    iterator = each
-    content {
-      origin          = each.value.origin
-      method          = each.value.method
-      response_header = each.value.response_header
-      max_age_seconds = each.value.max_age_seconds
-    }
   }
 
   dynamic "lifecycle_rule" {
