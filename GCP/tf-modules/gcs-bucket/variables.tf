@@ -14,7 +14,7 @@ variable "force_destroy" {
 variable "bucket_location" {
   description = "The location of the bucket"
   type        = string
-  default     = "asia-south1"
+  default     = "us-central1"
 }
 
 variable "default_storage_class" {
