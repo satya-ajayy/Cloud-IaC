@@ -48,7 +48,7 @@ variable "req_timeout_seconds" {
 variable "container_concurrency" {
   description = "The maximum number of concurrent requests each instance can handle"
   type        = number
-  default     = 800
+  default     = 100
 }
 
 variable "min_instances" {
@@ -84,10 +84,11 @@ variable "failure_threshold" {
 variable "health_check_path" {
   description = "The path to use for the liveness probe"
   type        = string
+  default     = "/"
 }
 
 variable "enable_liveness_probe" {
   description = "Whether to enable the liveness probe"
   type        = bool
-  default     = true
+  default     = false
 }

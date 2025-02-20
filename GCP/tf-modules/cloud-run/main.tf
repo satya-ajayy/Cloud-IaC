@@ -3,6 +3,11 @@
 resource "google_cloud_run_service" "cloud_run_service" {
   name     = var.service_name
   location = var.service_location
+  metadata {
+    annotations = {
+      "run.googleapis.com/minScale" = tostring(var.min_instances)
+    }
+  }
 
   template {
     metadata {
@@ -10,6 +15,7 @@ resource "google_cloud_run_service" "cloud_run_service" {
         "autoscaling.knative.dev/minScale"     = tostring(var.min_instances)
         "autoscaling.knative.dev/maxScale"     = tostring(var.max_instances)
         "run.googleapis.com/startup-cpu-boost" = true
+        "run.googleapis.com/cpu-throttling"    = false
       }
     }
 
@@ -52,8 +58,9 @@ resource "google_cloud_run_service" "cloud_run_service" {
               path = var.health_check_path
               port = var.container_port
             }
-            period_seconds        = var.period_seconds
-            timeout_seconds       = var.timeout_seconds
+            period_seconds    = var.period_seconds
+            timeout_seconds   = var.timeout_seconds
+            failure_threshold = var.failure_threshold
           }
         }
       }
@@ -71,8 +78,8 @@ resource "google_cloud_run_service" "cloud_run_service" {
 
 # Grant public access to the service
 resource "google_cloud_run_service_iam_member" "public_access" {
-  service  = google_cloud_run_service.nginx_service.name
-  location = google_cloud_run_service.nginx_service.location
+  service  = google_cloud_run_service.cloud_run_service.name
+  location = google_cloud_run_service.cloud_run_service.location
   role     = "roles/run.invoker"
   member   = "allUsers"
 }
