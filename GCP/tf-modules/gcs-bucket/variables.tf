@@ -1,4 +1,4 @@
-/* Varaibles for GCS bucket module */
+/* Variables for GCS bucket module */
 
 variable "bucket_name" {
   description = "The name of the bucket"

@@ -1,4 +1,4 @@
-/* Varaibles for cloud run service module */
+/* Variables for cloud run service module */
 
 variable "service_name" {
   description = "The name of the Cloud Run service"

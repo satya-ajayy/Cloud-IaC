@@ -1,4 +1,4 @@
-/* module for creating GCS bucket */
+/* Module for creating GCS bucket */
 
 locals {
   public_access = var.block_public_access ? "enforced" : "inherited"

@@ -1,4 +1,4 @@
-/* module for creating cloud run service */
+/* Module for creating cloud run service */
 
 resource "google_cloud_run_service" "cloud_run_service" {
   name     = var.service_name

@@ -1,4 +1,4 @@
-/* output for cloud run service module */
+/* Output Varaibles for cloud-run module */
 
 output "cloud_run_service_url" {
   description = "The URL of the deployed Cloud Run service"
