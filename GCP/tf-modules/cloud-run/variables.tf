@@ -92,3 +92,8 @@ variable "enable_liveness_probe" {
   type        = bool
   default     = false
 }
+
+variable "service_account_email" {
+  description = "The email of the service account to associate with the Cloud Run service"
+  type        = string
+}
