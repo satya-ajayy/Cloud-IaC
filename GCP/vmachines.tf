@@ -22,5 +22,5 @@ module "vmachine" {
   instance_name = "deployments"
   machine_type  = local.standard_2C_8G
   disk_size_gb  = 20
-  exposed_ports = [22, 80, 443, 5000, 8501, 4202]
+  exposed_ports = [22, 80, 443, 8000, 8501, 4202]
 }
