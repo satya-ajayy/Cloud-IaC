@@ -1,4 +1,4 @@
-// GCS Buckets
+// PDF Bucket
 module "pdfs_bucket" {
   source                      = "./tf-modules/gcs-bucket"
   bucket_name                 = "transcripts-pdfs"

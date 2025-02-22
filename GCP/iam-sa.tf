@@ -1,4 +1,4 @@
-// Service Accounts
+// Cloud Run Service Account
 module "cloud-run-sa" {
   source             = "./tf-modules/iam-sa"
   service_account_id = "cloud-run-sa"
@@ -9,6 +9,7 @@ module "cloud-run-sa" {
   ]
 }
 
+// Grafana Service Account
 module "grafana-sa" {
   source             = "./tf-modules/iam-sa"
   service_account_id = "grafana-sa"
