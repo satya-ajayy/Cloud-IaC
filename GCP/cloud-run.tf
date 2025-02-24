@@ -50,11 +50,11 @@
 # }
 
 // UnSaved Phone Number
-module "unsaved_phno" {
-  source                = "./tf-modules/cloud-run"
-  service_name          = "unsaved-phno"
-  service_location      = var.region
-  image                 = var.unsaved_phno_image
-  container_port        = 8000
-  service_account_email = module.cloud-run-sa.service_account_email
-}
+# module "unsaved_phno" {
+#   source                = "./tf-modules/cloud-run"
+#   service_name          = "unsaved-phno"
+#   service_location      = var.region
+#   image                 = var.unsaved_phno_image
+#   container_port        = 8000
+#   service_account_email = module.cloud-run-sa.service_account_email
+# }
