@@ -13,6 +13,7 @@
 #   }
 #   enable_liveness_probe = true
 #   health_check_path     = "/scheduler/v1/health"
+#   service_account_email = module.cloud-run-sa.service_account_email
 # }
 
 // Edatum Dashboard
@@ -25,6 +26,7 @@
 #   cpu              = "2000m"
 #   memory           = "512Mi"
 #   max_instances    = 2
+#   service_account_email = module.cloud-run-sa.service_account_email
 # }
 
 // Iris Flowers Prediction
@@ -34,6 +36,7 @@
 #   service_location = var.region
 #   image            = var.iris_image
 #   container_port   = 8501
+#   service_account_email = module.cloud-run-sa.service_account_email
 # }
 
 // News Webiste
@@ -47,6 +50,7 @@
 #   environment_variables = {
 #     "API_KEY" = var.api_key
 #   }
+#   service_account_email = module.cloud-run-sa.service_account_email
 # }
 
 // UnSaved Phone Number
