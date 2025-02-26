@@ -1,4 +1,4 @@
-// 
+// Variables for the GCP project
 
 variable "region" {
   description = "The region in which the resources will be created"
@@ -48,5 +48,15 @@ variable "mongo_uri" {
 
 variable "api_key" {
   description = "The API key to use for the News Website"
+  type        = string
+}
+
+variable "redis_uri" {
+  description = "The Redis URI to connect to the database"
+  type        = string
+}
+
+variable "redis_pwd" {
+  description = "The Redis password to connect to the database"
   type        = string
 }
