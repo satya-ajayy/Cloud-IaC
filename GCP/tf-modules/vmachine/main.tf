@@ -1,4 +1,4 @@
-/* Module to create virtual machines */
+/* Module to create virtual machine */
 
 resource "google_compute_instance" "vm" {
   name         = var.instance_name
