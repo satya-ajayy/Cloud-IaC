@@ -5,10 +5,10 @@ variable "cluster_name" {
   type        = string
 }
 
-variable "zone" {
-  description = "The GCP zone for the cluster"
+variable "region" {
+  description = "The region for the cluster"
   type        = string
-  default     = "us-central1-a"
+  default     = "us-central1"
 }
 
 variable "disk_size_gb" {

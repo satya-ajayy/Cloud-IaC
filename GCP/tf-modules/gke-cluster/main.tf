@@ -2,9 +2,9 @@
 
 resource "google_container_cluster" "cluster" {
   name     = var.cluster_name
-  location = var.zone
+  location = var.region
 
-  initial_node_count = var.node_count
+  initial_node_count  = var.node_count
   deletion_protection = var.deletion_protection
 
   node_config {
