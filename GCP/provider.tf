@@ -12,7 +12,7 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "terraform-state-bucket-515"
+    bucket = "tf-state-bucket-515"
     prefix = "terraform/state"
   }
 }

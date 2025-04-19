@@ -1,7 +1,7 @@
 // PDF Bucket
 module "pdfs_bucket" {
   source                      = "./tf-modules/gcs-bucket"
-  bucket_name                 = "transcripts-pdfs"
+  bucket_name                 = "transcript-pdfs"
   bucket_location             = var.region
   uniform_bucket_level_access = true
   block_public_access         = true
