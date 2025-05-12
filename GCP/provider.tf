@@ -12,7 +12,7 @@ terraform {
     }
   }
   backend "gcs" {
-    bucket = "tf-state-bucket-515"
+    bucket = "pegasus-tf-states"
     prefix = "terraform/state"
   }
 }
